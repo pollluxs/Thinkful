@@ -1,0 +1,327 @@
+Thinkful - Data Science Course - Notes
+
+
+UNIT 1
+
+Functions
+	 one of the most important concepts in programming. A function describes a repeatable process or behavior. You define that behavior once, and you can run and re-run your set of instructions whenever and as many times as you need.
+
+A string is a sequence of characters. '',""
+
+	You can also use triple quotes ''' to create big multi-line strings
+
+	\n for newline
+	\t for tab
+
+	Internal quotation marks can really mess up your strings if you don't escape them with a backslash
+
+	line = "He said, \"Sure, let's rock!\""
+		use \"  . . . "\ for quotes
+
+Concatenating
+	
+	Use the `+` operator to concatenate.
+	beginning = 'The quick brown fox '
+	end = 'jumps over the lazy dog.'
+	full_sentence = beginning + end
+	print(full_sentence)
+
+Repeating
+
+	Use the `*` operator to repeat.
+	print('Na' * 16 + " Batman!")
+
+	Remember that strings aren't numbers, even when they may look like numbers, so trying to do math with them won't work the way you expect.
+
+Indexing
+	
+	Each character of a string has an index, starting at 0 for the first character. You can access each character in a string by index using bracket notation.
+
+	'Hello'[0]
+		takes the first letter 'H'
+	'Hello'[4]
+		takes the 5th letter 'o'
+
+	The character at the start index is always included in the substring you get back, and the character at the end index is always excluded.
+
+	'Monty Python'[:5]
+		"Monty"
+	'Monty Python'[6:]
+		"Python"
+
+	You can also use negative numbers as indexes. When using negative numbers you start counting from the end, beginning with -1 as the last character in a string.
+
+	'Monty Python'[-1]
+		'n'
+	'Monty Python'[-3]
+		'h'
+
+Slicing
+
+	You can also access larger chunks of a string using slicing. While using a single index will give you a single character, using two indexes separated by a colon : will give you a substring
+
+	'Monty Python'[0:5]
+		'Monty'
+
+	'Monty Python'[6:8]
+		'Py'
+
+Comparing Strings
+
+	You can use the == operator to compare two strings to see if they're identical.
+
+	which is different from the assignment operator = used first below
+
+	food = 'eggs';
+	breakfast = 'eggs';
+	lunch = 'spam';
+
+	food == breakfast
+		True
+	breakfast == lunch
+		False
+
+String Methods
+
+	Return a new string with a capitalized first character.
+	'hello'.capitalize()
+
+	# Return a new string where all characters are lower case
+	'Hello'.lower()
+	'WORLD'.lower()
+
+	Check whether all characters are numeric. returns boolean
+	'1337'.isdecimal()
+	'p2p'.isdecimal()
+
+	Check whether all characters are alpha. Returns boolean
+	'hello'.isalpha()
+	'p2p'.isalpha()
+
+	Find the index of the first occurance of a substring. 
+	Gives zero based positional index
+
+		'hello'.find('l')
+		2
+
+		'world'.find('l')
+		3
+
+	Check the end of a string. Returns boolean
+	'hello'.endswith('o')
+	'world'.endswith('o')
+	'world'.endswith('rld')
+
+	Split a string into a list of strings at each instance of a substring.
+	generates list of strings based on split points
+	'The-quick-brown-fox'.split('-')
+		['The', 'quick', 'brown', 'fox']
+
+	Join a list of strings into one single string. Try passing a different string into this method.
+	generates single string using join character
+	'_'.join(['The', 'quick', 'brown', 'fox'])
+		The_quick_brown_fox
+
+	"Format" a string by replacing `{}` with the arguments you supply to the function.
+	'Player {} has {} hit points remaining'.format(1, 42)
+
+		Player 1 has 42 hit points remaining
+
+	'My favorite drink is {} with {} dashes of {}'.format('whiskey', 3, 'bitters')
+
+		My favorite drink is whiskey with 3 dashes of bitter
+
+Numbers
+
+	integers - represent whole numbers
+		no size limit
+	floats - represent decimal fractions
+		can be limited by how precise they are
+
+	+ addition
+	- subtraction
+	* multiplication
+	/ "true" division
+	// "floor" division
+	% remainder (also known as the "modulo" or "modulus" operator)
+	** exponentiation
+
+	PEMDAS: parentheses, exponents, multiplication/division, addition/subtraction.
+
+	+= add and assign
+	-= subtract and assign
+	*= multiply and assign
+	/= "true" divide and assign
+	//= "floor" divide and assign
+	%= modulo and assign
+	**= exponentiate and assign
+
+	< less than
+	<= less than or equal to
+	> greater than
+	>= greater than or equal to
+	== equal
+	!= not equal
+
+Logic
+
+	Anything that represents "something" is true. Anything that represents "nothing" is false:
+
+		False
+		None
+		0
+		empty string ''
+		empty list []
+		empty dictionary {}
+
+	logical operators
+
+		AND
+
+		>>> True and True
+			True
+		>>> True and False
+			False
+		>>> False and True
+			False
+		>>> False and False 
+			False
+
+		OR
+
+		>>> True or False
+			True
+		>>> False or True
+			True
+		>>> True or True
+			True
+		>>> False or False
+			False
+
+		NOT
+
+		not always returns a boolean True or False
+
+	Conditional Statements
+		if, else, elif
+
+		To use an if statement, you begin with if followed by an expression
+
+		The same syntax is used for elif (short for "else if") with the additional requirement that elif statements must follow an if statement. You can use as many elif statements as you like.
+
+		The catch-all else statement can follow if and elif statements to end a conditional statement. To use an else statement you just use else: and begin with your indented code block below. The else clause is a catch-all, so you don't include a condition to test.
+
+	Exception Handling
+		try & except
+
+		Python gives us try and except statements for dealing with conditional logic in the case of exceptions. These language constructs allow us to specify a block of code to be tried (the try statement). If that block does not succeed, the code in the except block runs.
+
+		Using a try, except statement instead of an if statement lets us "try" executing code that might raise an exception and run code to "handle" the exception if it does occur.
+
+		Try / except statements give the added benefit of letting your program continue to run. While unhandled exceptions halt your program with a traceback, handling an exception allows your program to gracefully continue along even when you raise an exception and conditionally run code when an exception does occur.
+
+Lists
+	
+	Lists are used to store a collection of data in an ordered sequence. List items can be of different data types.
+
+	To create a list, we use square brackets ([]). We separate items in the list with commas. It's customary to follow each comma with a space. Lists can be created with zero or more elements.
+
+	You can also use list() on another iterable such as a string or a range (we'll cover ranges later) to generate list
+
+	List contents are accessed by index using bracket notation; just like strings. You can access an item in a list by asking for the item in a given position.
+
+	lists can be sliced the same way as string using [:] brackett notation
+
+	len() function
+
+		Python has a built-in len() function that will tell you how long a list is by returning the number of items in a list.
+
+	.append()
+		The .append() method is used to add, or "append", a value to the end of a list. Methods such as .append() are called by following the list you want to work with by a dot ., then the name of the method, then parentheses ( ) containing the argument(s) you want to pass in.
+
+	.insert()
+		The .insert() method is used to insert a new value at any position in a list, including the beginning, middle, or end. You call it with two arguments: the index you want to insert at and the value you want to insert:
+
+	.pop()
+		The .pop() method is the opposite of .append(): it removes and returns the final item in a list. This is the first list method we've seen that has a return value; .append() and .insert() modify the underlying list but don't themselves have a return value. No arguments are needed with .pop().
+
+	.index()
+		The .index() method is used to find out the first index number of a matching list item. There is one required argument (the item you want to match), followed by two optional start and stop index arguments in case you want to limit your search to a particular slice of the list. Like pop() it returns a value: the index number of the first matching element
+
+	.sort()
+		The .sort() method is used to re-order a list. Like .append(), .sort() has no return value. It directly modifies the list you call it on and does not create and return a new sorted list.
+
+Loops
+	
+	for loops
+		for loops are used to run through a block of instructions a specific number of times
+
+		First off you begin with for, which signals that you're starting a loop and indicates which kind of loop it is. Then we follow with the variable name we'd like to give to each item in the list.
+
+		Next use the in keyword followed by the collection you're iterating over.
+
+		We end the line with a colon :, which indicates that we're ready to begin our indented block of code that will be executed each time the loop iterates.
+
+			NOTE: Using a plural name for a list and the singular of that name in a loop like this is very common. You might have a list of "area_codes" use a for loop that looks like for area_code in area_codes:, or a list of "users" and use a for loop like for user in users:. This style of naming is a useful convention, not a requirement.
+
+	while loops
+
+		while loops are useful when you aren't sure how many times you need to loop and will continue to iterate as long as the logical condition you provide is true.
+
+		To write a while loop you start with the while keyword, followed by an expression that evaluates to True or False.
+
+		If the condition evaluates to True, the loop will run; if not, it won't and execution of the program will continue on below.
+
+		Conceptually, while loops are meant to be used where the looped behavior does not have a known number of iterations, but instead a known logical condition where it should terminate. 
+
+		used in user input
+			use is to gather and validate user input.
+		break statements
+			Since the while condition here is True, which always evaluates to True, you might think that this loop would run forever. And that's exactly what would happen if you removed the break statement. Using break will terminate the enclosing loop, allowing the program to continue executing code further down.
+
+Dictionaries
+	
+	{ }
+
+	Dictionaries are a common and useful data structure that allow you to store data as an unordered collection of key: value pairs.
+
+	Dictionaries make sense for data you reference by name, or "key", rather than by position, or "index".
+
+	Python dictionaries are known in other languages as "associative arrays" or "hash tables"
+
+	Looking up or setting values by key rather than by index has incredibly different performance implications
+
+	Writing code that refers to data by name rather than by index number can be much clearer and easier to understand.
+
+	Each key is followed by a colon : and then the corresponding value.
+
+	A key: value pair together are called an item. Each item is separated from the next with a comma.
+
+	Boolean operations
+	 For that you can use the in and not in operators
+
+	 These boolean operations are useful for working with dictionaries without raising KeyErrors
+
+	Methods and looping
+	 .keys() dictionary method will return all the keys in a dictionary
+	 .values() method will return all the values in a dictionary
+	 .items() method will return all the key: value pairs (or "items") in a dictionary
+
+	 Each of these methods returns a dictionary view object 
+
+UNIT 2
+
+UNIT 3
+
+Frequentist
+
+The frequentist school of thought defines probability as describing how often a particular outcome would occur in an experiment if that experiment were repeated over and over
+
+Bayesian
+
+The Bayesian school of thought defines probability as describing how likely an observer expects a particular outcome to be in the future, based on previous experience and expert knowledge.
+
+Randomness - can be defined as a situation where all possible outcomes are equally likely. 
+
+Selections Bias - Systematic differences between the sample and the population
+
